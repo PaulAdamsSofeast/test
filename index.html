@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agilian NPD — May 2026 Performance Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue: #1565C0; --blue-light: #1976D2; --blue-pale: #E3F0FF;
+  --orange: #E65100; --orange-pale: #FFF3E0;
+  --green: #2E7D32; --green-pale: #E8F5E9;
+  --red: #C62828; --red-pale: #FFEBEE;
+  --amber: #E65100; --amber-pale: #FFFDE7;
+  --grey-1: #F5F7FA; --grey-2: #E8ECF0; --grey-3: #B0BAC8;
+  --grey-dark: #263238; --text: #1A2332; --muted: #546E7A;
+}
+body { background:#F0F4F8; font-family:'Barlow',sans-serif; color:var(--text); min-width:860px; }
+
+.header { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 55%,#1976D2 100%); padding:22px 32px 18px; display:flex; align-items:center; gap:18px; position:relative; overflow:hidden; }
+.hbg1 { position:absolute; right:-60px; top:-60px; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,0.06); }
+.hbg2 { position:absolute; right:100px; bottom:-80px; width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,0.04); }
+.htitle { font-family:'Barlow Condensed',sans-serif; font-size:40px; font-weight:800; color:#fff; text-transform:uppercase; line-height:1; }
+.hsub { font-size:14px; color:rgba(255,255,255,0.8); margin-top:5px; font-weight:500; letter-spacing:0.03em; }
+.hmeta { margin-left:auto; text-align:right; color:rgba(255,255,255,0.65); font-size:12px; line-height:1.9; position:relative; z-index:2; }
+
+.wrap { padding:16px; display:grid; gap:14px; }
+.row { display:grid; gap:14px; }
+.c2 { grid-template-columns:1fr 1fr; }
+.c3 { grid-template-columns:1fr 1fr 1fr; }
+.c32 { grid-template-columns:3fr 2fr; }
+
+.panel { background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:18px 20px 16px; }
+.pnum { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--blue); color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:14px; margin-right:8px; flex-shrink:0; }
+.ptitle { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--grey-dark); display:flex; align-items:center; margin-bottom:10px; }
+.pdesc { font-size:12.5px; color:var(--muted); margin-bottom:12px; line-height:1.5; }
+.bt-blue { border-top:4px solid var(--blue); }
+.bt-green { border-top:4px solid var(--green); }
+.bt-red { border-top:4px solid var(--red); }
+.bt-amber { border-top:4px solid #F57F17; }
+.bt-ind { border-top:4px solid #5C6BC0; }
+
+.bignum { font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:800; line-height:1; color:var(--blue); }
+.bignum.g { color:var(--green); } .bignum.r { color:var(--red); } .bignum.a { color:#F57F17; }
+.biglabel { font-size:12px; color:var(--muted); margin-top:2px; }
+
+.sblock { text-align:center; padding:10px 8px; border-radius:8px; }
+.snum { font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; line-height:1; }
+.slabel { font-size:11px; color:var(--muted); margin-top:5px; font-weight:500; }
+
+.vsbox { background:var(--grey-1); border-radius:8px; padding:10px 12px; text-align:center; }
+.vsprev { font-size:11px; color:var(--muted); margin-bottom:3px; }
+.vsnum { font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:700; color:var(--grey-dark); }
+.vsarrow { font-weight:700; font-size:20px; line-height:1.1; }
+.vschg { font-size:11px; font-weight:600; margin-top:2px; }
+.cbad { color:var(--red); } .cgood { color:var(--green); }
+
+.pbrow { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+.pblabel { width:30px; font-size:11px; font-weight:700; color:var(--blue); font-family:'Barlow Condensed',sans-serif; }
+.pbtrack { flex:1; background:var(--grey-2); border-radius:3px; height:20px; overflow:hidden; }
+.pbfill { height:100%; border-radius:3px; display:flex; align-items:center; padding-left:8px; font-size:11px; font-weight:600; color:#fff; }
+.pbcount { width:22px; text-align:right; font-size:13px; font-weight:700; color:var(--grey-dark); }
+
+.ltbl { width:100%; border-collapse:collapse; font-size:12.5px; }
+.ltbl th { font-size:11px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; padding:4px 6px 8px; border-bottom:2px solid var(--grey-2); text-align:left; }
+.ltbl td { padding:7px 6px; border-bottom:1px solid var(--grey-2); vertical-align:middle; }
+.ltbl tr:last-child td { border-bottom:none; }
+.lpill { display:inline-block; padding:1px 7px; border-radius:10px; font-size:11px; font-weight:600; }
+.pup { background:#FFEBEE; color:var(--red); } .pdown { background:#E8F5E9; color:var(--green); }
+.lbrow { display:flex; align-items:center; gap:7px; }
+.lbtrack { flex:1; background:var(--grey-2); border-radius:2px; height:8px; overflow:hidden; }
+.lbfill { height:100%; border-radius:2px; }
+
+.ri { display:flex; align-items:flex-start; gap:10px; padding:8px 0; border-bottom:1px solid var(--grey-2); }
+.ri:last-child { border-bottom:none; }
+.ragd { width:11px; height:11px; border-radius:50%; flex-shrink:0; margin-top:4px; }
+.ragr { background:#E53935; } .ragy { background:#FDD835; } .ragg { background:#43A047; }
+.rtitle { font-size:12.5px; font-weight:600; color:var(--text); }
+.rnote { font-size:11.5px; color:var(--muted); margin-top:2px; line-height:1.4; }
+
+.mvi { display:flex; align-items:flex-start; gap:10px; padding:8px 0; border-bottom:1px solid var(--grey-2); }
+.mvi:last-child { border-bottom:none; }
+.mvb { width:22px; height:22px; border-radius:5px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; margin-top:1px; }
+.mvnew { background:#E8F5E9; color:var(--green); } .mvstop { background:#FFEBEE; color:var(--red); } .mvadv { background:#E3F0FF; color:var(--blue); }
+.mvtitle { font-size:12.5px; font-weight:600; color:var(--text); }
+.mvcode { font-family:'Barlow Condensed',sans-serif; font-weight:700; color:var(--blue); font-size:13px; }
+.mvnote { font-size:11.5px; color:var(--muted); margin-top:2px; line-height:1.4; }
+
+.div { height:1px; background:var(--grey-2); margin:10px 0; }
+
+.kpii { text-align:center; padding:12px 8px; background:var(--grey-1); border-radius:8px; }
+.kpiv { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; color:var(--blue); line-height:1; }
+.kpil { font-size:11px; color:var(--muted); margin-top:4px; line-height:1.4; }
+
+.lgit { display:flex; align-items:center; gap:7px; font-size:11.5px; margin-bottom:5px; }
+.lgd { width:12px; height:12px; border-radius:3px; flex-shrink:0; }
+
+.footer { background:var(--grey-dark); color:rgba(255,255,255,0.55); font-size:11px; padding:12px 24px; display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="hbg1"></div><div class="hbg2"></div>
+  <svg width="62" height="62" viewBox="0 0 62 62" fill="none" style="position:relative;z-index:2;flex-shrink:0;">
+    <rect x="4" y="22" width="54" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+    <rect x="10" y="28" width="16" height="18" rx="2" fill="rgba(255,255,255,0.25)"/>
+    <rect x="36" y="28" width="16" height="18" rx="2" fill="rgba(255,255,255,0.25)"/>
+    <rect x="14" y="15" width="34" height="8" rx="2" fill="rgba(255,255,255,0.28)"/>
+    <circle cx="18" cy="56" r="4" fill="rgba(255,255,255,0.4)"/>
+    <circle cx="44" cy="56" r="4" fill="rgba(255,255,255,0.4)"/>
+    <rect x="27" y="38" width="8" height="12" rx="1" fill="rgba(255,255,255,0.4)"/>
+  </svg>
+  <div style="position:relative;z-index:2;">
+    <div class="htitle">NPD PORTFOLIO — MAY 2026</div>
+    <div class="hsub">Key Performance Overview &nbsp;|&nbsp; Agilian Technology Co., Ltd.</div>
+  </div>
+  <div class="hmeta">
+    Source: NPD Lead Project Tracker 2026<br>
+    Week ending: 29 May 2026<br>
+    Head of NPD: Paul Adams
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ROW 1 -->
+  <div class="row c2">
+
+    <!-- P1 PORTFOLIO VOLUME -->
+    <div class="panel bt-blue">
+      <div class="ptitle"><span class="pnum">1</span>PORTFOLIO VOLUME STATISTICS</div>
+      <div class="pdesc">In May, 10 new projects were assigned — the highest single-month intake of 2026. 8 projects were stopped.</div>
+      <div style="display:flex;gap:10px;margin-bottom:14px;">
+        <div class="sblock" style="flex:1;background:#E8F5E9;">
+          <svg width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#2E7D32" stroke-width="2"/><line x1="9" y1="15" x2="21" y2="15" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round"/><line x1="15" y1="9" x2="15" y2="21" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <div class="snum" style="color:var(--green);">10</div>
+          <div class="slabel">New Added</div>
+        </div>
+        <div class="sblock" style="flex:1;background:#FFEBEE;">
+          <svg width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#C62828" stroke-width="2"/><line x1="9" y1="15" x2="21" y2="15" stroke="#C62828" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <div class="snum" style="color:var(--red);">8</div>
+          <div class="slabel">Stopped</div>
+        </div>
+        <div class="sblock" style="flex:1;background:#E3F0FF;">
+          <svg width="30" height="30" viewBox="0 0 30 30"><rect x="6" y="8" width="18" height="14" rx="2" fill="none" stroke="#1565C0" stroke-width="2"/><line x1="10" y1="8" x2="10" y2="6" stroke="#1565C0" stroke-width="2"/><line x1="20" y1="8" x2="20" y2="6" stroke="#1565C0" stroke-width="2"/><line x1="9" y1="14" x2="21" y2="14" stroke="#1565C0" stroke-width="1.5"/></svg>
+          <div class="snum" style="color:var(--blue);">52</div>
+          <div class="slabel">Total Active</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div>
+          <div style="font-size:11px;color:var(--muted);">vs. Previous Month</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--grey-dark);">41 projects</div>
+        </div>
+        <div style="flex:1;text-align:center;">
+          <div class="vsarrow cbad">↑</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--red);">+11</div>
+          <div style="font-size:11px;font-weight:600;color:var(--red);">projects more</div>
+        </div>
+        <div class="vsbox">
+          <div class="vsprev">YTD New</div>
+          <div class="vsnum" style="color:var(--green);">22</div>
+          <div style="font-size:10px;color:var(--muted);">projects</div>
+        </div>
+        <div class="vsbox">
+          <div class="vsprev">YTD Stopped</div>
+          <div class="vsnum" style="color:var(--red);">12</div>
+          <div style="font-size:10px;color:var(--muted);">projects</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- P2 PHASE DISTRIBUTION -->
+    <div class="panel bt-blue">
+      <div class="ptitle"><span class="pnum">2</span>MAY PHASE DISTRIBUTION</div>
+      <div class="pdesc">52 active projects across 5 phases. Prototype Build dominates at 65% of the portfolio — reflecting the large May intake.</div>
+      <div style="display:flex;gap:16px;align-items:center;">
+        <div style="flex:1;">
+          <div class="pbrow"><div class="pblabel">FS</div><div class="pbtrack"><div class="pbfill" style="width:11.5%;background:#5C6BC0;">6</div></div><div class="pbcount">6</div></div>
+          <div class="pbrow"><div class="pblabel">PB</div><div class="pbtrack"><div class="pbfill" style="width:65%;background:#1565C0;">34</div></div><div class="pbcount">34</div></div>
+          <div class="pbrow"><div class="pblabel">EV</div><div class="pbtrack"><div class="pbfill" style="width:3%;background:#90CAF9;min-width:26px;">0</div></div><div class="pbcount">0</div></div>
+          <div class="pbrow"><div class="pblabel">TV</div><div class="pbtrack"><div class="pbfill" style="width:15.4%;background:#F57F17;">8</div></div><div class="pbcount">8</div></div>
+          <div class="pbrow"><div class="pblabel">PP</div><div class="pbtrack"><div class="pbfill" style="width:9.6%;background:#2E7D32;">5</div></div><div class="pbcount">5</div></div>
+          <div class="pbrow"><div class="pblabel">MP</div><div class="pbtrack"><div class="pbfill" style="width:2%;background:#43A047;min-width:26px;">1</div></div><div class="pbcount">1</div></div>
+        </div>
+        <div>
+          <svg width="108" height="108" viewBox="0 0 108 108">
+            <circle cx="54" cy="54" r="42" fill="none" stroke="#E8ECF0" stroke-width="18"/>
+            <circle cx="54" cy="54" r="42" fill="none" stroke="#1565C0" stroke-width="18" stroke-dasharray="171.3 263.9" stroke-dashoffset="0" transform="rotate(-90 54 54)"/>
+            <circle cx="54" cy="54" r="42" fill="none" stroke="#F57F17" stroke-width="18" stroke-dasharray="40.6 263.9" stroke-dashoffset="-171.3" transform="rotate(-90 54 54)"/>
+            <circle cx="54" cy="54" r="42" fill="none" stroke="#2E7D32" stroke-width="18" stroke-dasharray="25.3 263.9" stroke-dashoffset="-211.9" transform="rotate(-90 54 54)"/>
+            <circle cx="54" cy="54" r="42" fill="none" stroke="#5C6BC0" stroke-width="18" stroke-dasharray="30.3 263.9" stroke-dashoffset="-237.2" transform="rotate(-90 54 54)"/>
+            <circle cx="54" cy="54" r="42" fill="none" stroke="#43A047" stroke-width="18" stroke-dasharray="5.3 263.9" stroke-dashoffset="-253.5" transform="rotate(-90 54 54)"/>
+            <text x="54" y="50" font-family="Barlow Condensed" font-size="22" font-weight="800" fill="#1565C0" text-anchor="middle">52</text>
+            <text x="54" y="64" font-family="Barlow" font-size="10" fill="#546E7A" text-anchor="middle">projects</text>
+          </svg>
+          <div style="margin-top:8px;">
+            <div class="lgit"><div class="lgd" style="background:#1565C0;"></div>PB 34 (65%)</div>
+            <div class="lgit"><div class="lgd" style="background:#F57F17;"></div>TV 8 (15%)</div>
+            <div class="lgit"><div class="lgd" style="background:#5C6BC0;"></div>FS 6 (12%)</div>
+            <div class="lgit"><div class="lgd" style="background:#2E7D32;"></div>PP 5 (10%)</div>
+            <div class="lgit"><div class="lgd" style="background:#43A047;"></div>MP 1 (2%)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="row c3">
+
+    <!-- P3 NEW PROJECTS -->
+    <div class="panel bt-green">
+      <div class="ptitle"><span class="pnum" style="background:var(--green);">3</span>NEW PROJECTS — MAY</div>
+      <div class="pdesc">10 new projects assigned across two intake weeks — largest single-month intake in 2026.</div>
+      <div style="display:flex;gap:14px;margin-bottom:12px;">
+        <div style="text-align:center;">
+          <div style="font-size:10px;color:var(--muted);">Wk 22-May</div>
+          <div class="bignum g" style="font-size:46px;">7</div>
+          <div style="font-size:11px;color:var(--muted);">projects</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:10px;color:var(--muted);">Wk 29-May</div>
+          <div class="bignum g" style="font-size:46px;">3</div>
+          <div style="font-size:11px;color:var(--muted);">projects</div>
+        </div>
+        <div class="vsbox" style="align-self:center;">
+          <div class="vsprev">vs. Apr</div>
+          <div class="vsnum">0</div>
+          <div class="vsarrow cbad" style="font-size:16px;">↑</div>
+          <div class="vschg cbad">+10 more</div>
+        </div>
+      </div>
+      <div class="div"></div>
+      <div class="mvi"><div class="mvb mvnew">+</div><div><div class="mvtitle"><span class="mvcode">STEVEN:</span> DED · VIR · EVK · NVK</div><div class="mvnote">Bracelet PB80%; retractable cable FS; 2× cooker variants PB</div></div></div>
+      <div class="mvi"><div class="mvb mvnew">+</div><div><div class="mvtitle"><span class="mvcode">GLORIA:</span> ERG · 8SP</div><div class="mvnote">New hinge product PB80%; early validation project EVT30%</div></div></div>
+      <div class="mvi"><div class="mvb mvnew">+</div><div><div class="mvtitle"><span class="mvcode">RYDER:</span> KOM-CR · SIM · OMO-A · ECH</div><div class="mvnote">Earbuds variant PB80%; buds PB30%; ashtray PB20%; hair bin FS</div></div></div>
+    </div>
+
+    <!-- P4 STOPPED -->
+    <div class="panel bt-red">
+      <div class="ptitle"><span class="pnum" style="background:var(--red);">4</span>PROJECTS STOPPED — MAY</div>
+      <div class="pdesc">8 projects stopped — highest monthly stop count of 2026. Primarily commercial and engagement failures.</div>
+      <div style="display:flex;gap:14px;margin-bottom:12px;align-items:flex-end;">
+        <div>
+          <div class="bignum r">8</div>
+          <div class="biglabel">projects stopped</div>
+        </div>
+        <div class="vsbox">
+          <div class="vsprev">vs. Apr</div>
+          <div class="vsnum">1</div>
+          <div class="vsarrow cbad" style="font-size:16px;">↑</div>
+          <div class="vschg cbad">7 more</div>
+        </div>
+      </div>
+      <div class="div"></div>
+      <div class="mvi"><div class="mvb mvstop">✕</div><div><div class="mvtitle"><span class="mvcode">DMITRY:</span> ICO · KRX-P · KRX-W</div><div class="mvnote">No customer contact; samples fulfilled; no further workload</div></div></div>
+      <div class="mvi"><div class="mvb mvstop">✕</div><div><div class="mvtitle"><span class="mvcode">STEVEN:</span> ILV · OZI · EVE</div><div class="mvnote">Parts delayed indefinitely; on hold Dec-25; customer non-payment</div></div></div>
+      <div class="mvi"><div class="mvb mvstop">✕</div><div><div class="mvtitle"><span class="mvcode">RAYLENE:</span> PRM</div><div class="mvnote">NNN unsigned; no customer reply since 13-Apr</div></div></div>
+      <div class="mvi"><div class="mvb mvstop">✕</div><div><div class="mvtitle"><span class="mvcode">RYDER:</span> OMO-F</div><div class="mvnote">Client cost expectations outside Agilian margin strength</div></div></div>
+    </div>
+
+    <!-- P5 PHASE ADVANCES -->
+    <div class="panel bt-ind">
+      <div class="ptitle"><span class="pnum" style="background:#5C6BC0;">5</span>PHASE ADVANCES — MAY</div>
+      <div class="pdesc">Multiple projects advanced through the NPI gate structure — including two into tooling.</div>
+      <div class="mvi"><div class="mvb mvadv">→</div><div><div class="mvtitle"><span class="mvcode">SPN</span> Pet Water Bottle — Paul</div><div class="mvnote">PB → TV · PT2 signed off; tooling phase commenced</div></div></div>
+      <div class="mvi"><div class="mvb mvadv">→</div><div><div class="mvtitle"><span class="mvcode">LUCI-G</span> Glasses — Paul</div><div class="mvnote">PB → TL · Tooling PO placed; tight launch schedule flagged</div></div></div>
+      <div class="mvi"><div class="mvb mvadv">→</div><div><div class="mvtitle"><span class="mvcode">VIB</span> Egg Speaker — Dmitry</div><div class="mvnote">PB → TL · Memory defect risk; compliance test blocked</div></div></div>
+      <div class="mvi"><div class="mvb mvadv">→</div><div><div class="mvtitle"><span class="mvcode">CRU</span> Crusiclock — Gloria</div><div class="mvnote">TV → TL · Off-tooling samples shipped to customer</div></div></div>
+      <div class="mvi"><div class="mvb mvadv">→</div><div><div class="mvtitle"><span class="mvcode">TAMA · ALAD · KYR · SNY · OOPS</span></div><div class="mvnote">FS → PB transitions across Raylene &amp; Dmitry during May</div></div></div>
+    </div>
+  </div>
+
+  <!-- ROW 3 LEAD WORKLOAD full width -->
+  <div class="panel bt-blue">
+    <div class="ptitle"><span class="pnum">6</span>NPD LEAD WORKLOAD — MAY 2026</div>
+    <div style="display:flex;gap:20px;align-items:flex-start;">
+      <div style="flex:1;">
+        <div class="pdesc">6 active leads; average 8.7 projects per lead. Gloria carries the highest load at 11. Ryder completes his first full operating month.</div>
+        <table class="ltbl">
+          <thead><tr><th>Lead</th><th>Projects (May)</th><th>Load Bar (max 11)</th><th>Δ Apr→May</th><th>Key Changes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600;">Paul</td>
+              <td style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--blue);">7</td>
+              <td><div class="lbrow"><div class="lbtrack"><div class="lbfill" style="width:63.6%;background:#1565C0;"></div></div></div></td>
+              <td><span class="lpill pdown">−3</span></td>
+              <td style="font-size:11px;color:var(--muted);">KOM+OMO→Ryder; LUCI-GP stopped</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">Dmitry</td>
+              <td style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--blue);">6</td>
+              <td><div class="lbrow"><div class="lbtrack"><div class="lbfill" style="width:54.5%;background:#5C6BC0;"></div></div></div></td>
+              <td><span class="lpill pdown">−2</span></td>
+              <td style="font-size:11px;color:var(--muted);">ICO/KRX-P/KRX-W stopped; OOPS paused (invoice)</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--red);">Gloria ★</td>
+              <td style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--red);">11</td>
+              <td><div class="lbrow"><div class="lbtrack"><div class="lbfill" style="width:100%;background:#C62828;"></div></div></div></td>
+              <td><span class="lpill pup">+4</span></td>
+              <td style="font-size:11px;color:var(--muted);">ERG + 8SP added wk-29 — highest load in team</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">Steven</td>
+              <td style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--blue);">8</td>
+              <td><div class="lbrow"><div class="lbtrack"><div class="lbfill" style="width:72.7%;background:#1976D2;"></div></div></div></td>
+              <td><span class="lpill pdown">−1</span></td>
+              <td style="font-size:11px;color:var(--muted);">DED/VIR/NVK added; ILV/OZI/EVE stopped</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">Raylene</td>
+              <td style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--blue);">9</td>
+              <td><div class="lbrow"><div class="lbtrack"><div class="lbfill" style="width:81.8%;background:#F57F17;"></div></div></div></td>
+              <td><span class="lpill pup">+2</span></td>
+              <td style="font-size:11px;color:var(--muted);">RAM + OLL confirmed active</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--green);">Ryder ★</td>
+              <td style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--green);">8</td>
+              <td><div class="lbrow"><div class="lbtrack"><div class="lbfill" style="width:72.7%;background:#2E7D32;"></div></div></div></td>
+              <td><span class="lpill" style="background:#E8F5E9;color:var(--green);">+8 new</span></td>
+              <td style="font-size:11px;color:var(--muted);">Onboarded Apr-26 — first full operating month</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="min-width:148px;display:grid;gap:10px;">
+        <div class="kpii"><div class="kpiv">8.7</div><div class="kpil">Avg Projects<br>per Lead</div></div>
+        <div class="kpii" style="background:#FFEBEE;"><div class="kpiv" style="color:var(--red);">11</div><div class="kpil">Max Load<br>(Gloria)</div></div>
+        <div class="kpii"><div class="kpiv">6</div><div class="kpil">Active NPD<br>Leads</div></div>
+        <div class="kpii" style="background:#FFFDE7;"><div class="kpiv" style="color:#E65100;">13.5%</div><div class="kpil">Portfolio<br>Turnover Rate</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 4 RISKS -->
+  <div class="row c2">
+
+    <!-- P7 RED -->
+    <div class="panel bt-red">
+      <div class="ptitle"><span class="pnum" style="background:var(--red);">7</span>RED — CRITICAL RISK FLAGS</div>
+      <div class="pdesc">5 projects flagged RED at wk-29. Immediate action or escalation required.</div>
+      <div class="ri"><div class="ragd ragr"></div><div><div class="rtitle">SVI — Water Remineralizer (Paul) &nbsp;<span style="font-size:11px;color:var(--red);">35 days late</span></div><div class="rnote">PP3 retro-build: chamber leaking post sub-assembly pressure test. Root cause investigation ongoing on remaining units. 60 of 86 units built.</div></div></div>
+      <div class="ri"><div class="ragd ragr"></div><div><div class="rtitle">HAS — Ceramic Coffee Machine (Paul) &nbsp;<span style="font-size:11px;color:var(--red);">59 days late</span></div><div class="rnote">Surface heat exceeds IEC limit in base cavity. 3D-printed insulation shows promise; heatsink addition planned. ETL compliance testing underway. Alt sheet metal supplier visits scheduled.</div></div></div>
+      <div class="ri"><div class="ragd ragr"></div><div><div class="rtitle">VIB — Egg Speaker (Dmitry) &nbsp;<span style="font-size:11px;color:var(--red);">&gt;1 month delay</span></div><div class="rnote">16GB memory issue blocking compliance reliability test. 13-unit validation plan (100 connect/disconnect cycles) underway.</div></div></div>
+      <div class="ri"><div class="ragd ragr"></div><div><div class="rtitle">SWP — Spin Mat (Dmitry) &nbsp;<span style="font-size:11px;color:var(--red);">BOM $23 over target</span></div><div class="rnote">Split-batch 4K + 7K proposal under customer review. PCB and MCU cost-reduction options require validation before implementation.</div></div></div>
+      <div class="ri"><div class="ragd ragr"></div><div><div class="rtitle">KOM — Komutr Earbuds (Ryder) &nbsp;<span style="font-size:11px;color:var(--red);">MP — firmware issue</span></div><div class="rnote">Mis-pairing FW fix targeted for completion next week. BOM + manufacturing cost still too high — no update from supplier.</div></div></div>
+    </div>
+
+    <!-- P8 AMBER -->
+    <div class="panel bt-amber">
+      <div class="ptitle"><span class="pnum" style="background:#F57F17;">8</span>AMBER — WATCH LIST &amp; ACTIONS</div>
+      <div class="pdesc">Projects requiring close monitoring or follow-up. Status confirmations outstanding for JAWS and TONY.</div>
+      <div class="ri"><div class="ragd ragy"></div><div><div class="rtitle">LUCI-D — Desk Lamp (Paul) &nbsp;<span style="font-size:11px;color:#E65100;">49 days late</span></div><div class="rnote">REACH + RoHS failed at PP2. Parts re-sourced; compliance re-submission arranged. Customer 3000-unit PO remains active.</div></div></div>
+      <div class="ri"><div class="ragd ragy"></div><div><div class="rtitle">SSD — Wearable Belt (Paul) &nbsp;<span style="font-size:11px;color:#E65100;">171 days late</span></div><div class="rnote">PT1 50%. Parts ordered for POC build. Long-running schedule overshoot — no current blocker.</div></div></div>
+      <div class="ri"><div class="ragd ragy"></div><div><div class="rtitle">CLA — CollarConnect Dog Collar (Steven) &nbsp;<span style="font-size:11px;color:#E65100;">92 days late</span></div><div class="rnote">UWB module lacks FCC cert. Hardware sent for app debug. MP estimated end-2026.</div></div></div>
+      <div class="ri"><div class="ragd ragy"></div><div><div class="rtitle">OOPS — Wall System (Dmitry) &nbsp;<span style="font-size:11px;color:#E65100;">PAUSED</span></div><div class="rnote">Unpaid invoice — work suspended. Prototype issues list shared. Awaiting payment resolution.</div></div></div>
+      <div class="ri"><div class="ragd ragy"></div><div><div class="rtitle">OLL — PinG Keyfob (Raylene) &nbsp;<span style="font-size:11px;color:#E65100;">28 days late</span></div><div class="rnote">Engineering hours over quotation. Awaiting customer FW to validate hardware. 10 units assembled.</div></div></div>
+      <div class="ri"><div class="ragd ragy"></div><div><div class="rtitle">JAWS &amp; TONY — Status Unconfirmed &nbsp;<span style="font-size:11px;color:#E65100;">ACTION REQUIRED</span></div><div class="rnote">Neither project reported in wk-29 weekly. Paul → confirm JAWS. Steven → confirm TONY before next cycle.</div></div></div>
+    </div>
+  </div>
+
+  <!-- ROW 5 YTD TREND + RYDER -->
+  <div class="row c32">
+
+    <!-- P9 YTD TREND -->
+    <div class="panel bt-blue">
+      <div class="ptitle"><span class="pnum">9</span>YTD PORTFOLIO TREND — JAN TO MAY</div>
+      <div class="pdesc">Portfolio held steady Jan–Apr before a sharp intake spike in May driven by Ryder onboarding and new commercial wins.</div>
+      <svg width="100%" viewBox="0 0 520 148" xmlns="http://www.w3.org/2000/svg" style="margin-top:4px;">
+        <line x1="50" y1="16" x2="510" y2="16" stroke="#E8ECF0" stroke-width="1"/>
+        <line x1="50" y1="46" x2="510" y2="46" stroke="#E8ECF0" stroke-width="1"/>
+        <line x1="50" y1="76" x2="510" y2="76" stroke="#E8ECF0" stroke-width="1"/>
+        <line x1="50" y1="106" x2="510" y2="106" stroke="#E8ECF0" stroke-width="1"/>
+        <text x="44" y="20" font-family="Barlow Condensed" font-size="11" fill="#90A4AE" text-anchor="end">55</text>
+        <text x="44" y="50" font-family="Barlow Condensed" font-size="11" fill="#90A4AE" text-anchor="end">46</text>
+        <text x="44" y="80" font-family="Barlow Condensed" font-size="11" fill="#90A4AE" text-anchor="end">37</text>
+        <text x="44" y="110" font-family="Barlow Condensed" font-size="11" fill="#90A4AE" text-anchor="end">28</text>
+        <polygon points="110,62.7 210,65.6 310,59.5 410,62.7 510,26.4 510,106 410,106 310,106 210,106 110,106" fill="rgba(21,101,192,0.1)"/>
+        <polyline points="110,62.7 210,65.6 310,59.5 410,62.7 510,26.4" fill="none" stroke="#1565C0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="110" cy="62.7" r="5" fill="#1565C0"/>
+        <circle cx="210" cy="65.6" r="5" fill="#1565C0"/>
+        <circle cx="310" cy="59.5" r="5" fill="#1565C0"/>
+        <circle cx="410" cy="62.7" r="5" fill="#1565C0"/>
+        <circle cx="510" cy="26.4" r="7" fill="#1565C0" stroke="#fff" stroke-width="2"/>
+        <text x="110" y="55" font-family="Barlow Condensed" font-size="13" font-weight="600" fill="#1565C0" text-anchor="middle">41</text>
+        <text x="210" y="58" font-family="Barlow Condensed" font-size="13" font-weight="600" fill="#1565C0" text-anchor="middle">40</text>
+        <text x="310" y="52" font-family="Barlow Condensed" font-size="13" font-weight="600" fill="#1565C0" text-anchor="middle">42</text>
+        <text x="410" y="55" font-family="Barlow Condensed" font-size="13" font-weight="600" fill="#1565C0" text-anchor="middle">41</text>
+        <text x="510" y="19" font-family="Barlow Condensed" font-size="17" font-weight="700" fill="#1565C0" text-anchor="middle">52</text>
+        <rect x="96" y="86" width="28" height="20" fill="rgba(46,125,50,0.3)" rx="2"/>
+        <text x="110" y="100" font-family="Barlow" font-size="10" fill="#2E7D32" text-anchor="middle" font-weight="600">+4</text>
+        <rect x="196" y="100" width="28" height="6" fill="rgba(46,125,50,0.3)" rx="2"/>
+        <text x="210" y="109" font-family="Barlow" font-size="10" fill="#2E7D32" text-anchor="middle" font-weight="600">+1</text>
+        <rect x="296" y="79" width="28" height="27" fill="rgba(46,125,50,0.3)" rx="2"/>
+        <text x="310" y="97" font-family="Barlow" font-size="10" fill="#2E7D32" text-anchor="middle" font-weight="600">+6</text>
+        <rect x="396" y="105" width="28" height="1" fill="rgba(46,125,50,0.2)" rx="2"/>
+        <rect x="496" y="56" width="28" height="50" fill="rgba(46,125,50,0.4)" rx="2"/>
+        <text x="510" y="84" font-family="Barlow" font-size="11" fill="#2E7D32" text-anchor="middle" font-weight="700">+10</text>
+        <text x="110" y="128" font-family="Barlow Condensed" font-size="12" fill="#546E7A" text-anchor="middle">Jan</text>
+        <text x="210" y="128" font-family="Barlow Condensed" font-size="12" fill="#546E7A" text-anchor="middle">Feb</text>
+        <text x="310" y="128" font-family="Barlow Condensed" font-size="12" fill="#546E7A" text-anchor="middle">Mar</text>
+        <text x="410" y="128" font-family="Barlow Condensed" font-size="12" fill="#546E7A" text-anchor="middle">Apr</text>
+        <text x="510" y="128" font-family="Barlow Condensed" font-size="13" fill="#1565C0" text-anchor="middle" font-weight="700">May ★</text>
+        <line x1="55" y1="140" x2="75" y2="140" stroke="#1565C0" stroke-width="2"/>
+        <circle cx="65" cy="140" r="3" fill="#1565C0"/>
+        <text x="79" y="144" font-family="Barlow" font-size="10" fill="#546E7A">Total Active</text>
+        <rect x="155" y="135" width="12" height="9" fill="rgba(46,125,50,0.4)" rx="1"/>
+        <text x="170" y="144" font-family="Barlow" font-size="10" fill="#546E7A">New Projects Added</text>
+      </svg>
+    </div>
+
+    <!-- P10 RYDER -->
+    <div class="panel bt-green">
+      <div class="ptitle"><span class="pnum" style="background:var(--green);">10</span>RYDER — FIRST FULL MONTH</div>
+      <div class="pdesc">Onboarded Apr-26. Inherited KOM + OMO from Paul. Now managing 8 projects independently.</div>
+      <div style="text-align:center;margin:8px 0 12px;">
+        <div class="bignum g" style="font-size:68px;">8</div>
+        <div style="font-size:12px;color:var(--muted);">active projects — end of May</div>
+      </div>
+      <div class="div"></div>
+      <div style="font-size:12px;line-height:2.1;margin-top:8px;">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--grey-2);padding:2px 0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--green);font-size:13px;">KOM</span><span style="color:var(--muted);">Komutr TWS — MP (inherited)</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--grey-2);padding:2px 0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--green);font-size:13px;">OMO</span><span style="color:var(--muted);">AirFryer — PB 50%</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--grey-2);padding:2px 0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--green);font-size:13px;">KOM-CR</span><span style="color:var(--muted);">Komutr CR — PB 80%</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--grey-2);padding:2px 0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--green);font-size:13px;">SIM</span><span style="color:var(--muted);">Simple Buds — PB 30%</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--grey-2);padding:2px 0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--green);font-size:13px;">OMO-A</span><span style="color:var(--muted);">Ashtray — PB 20%</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--grey-2);padding:2px 0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--green);font-size:13px;">ECH</span><span style="color:var(--muted);">Hair Bin — FS</span></div>
+        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--green);font-size:13px;">BOR</span><span style="color:var(--muted);">Laptop Stand — Design 99%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 6 BOTTOM KPI BAR -->
+  <div class="panel bt-blue">
+    <div class="ptitle"><span class="pnum">11</span>PORTFOLIO OPERATION OVERVIEW — KEY INDICATORS</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:4px;">
+      <div class="kpii">
+        <div style="font-size:24px;margin-bottom:4px;">📋</div>
+        <div class="kpiv">100%</div>
+        <div class="kpil">Weekly Status Reports Submitted (all 6 leads)</div>
+      </div>
+      <div class="kpii" style="background:#FFEBEE;">
+        <div style="font-size:24px;margin-bottom:4px;">🔴</div>
+        <div class="kpiv" style="color:var(--red);">5</div>
+        <div class="kpil">RED-rated projects requiring escalation</div>
+      </div>
+      <div class="kpii" style="background:#FFFDE7;">
+        <div style="font-size:24px;margin-bottom:4px;">🟡</div>
+        <div class="kpiv" style="color:#E65100;">6+</div>
+        <div class="kpil">AMBER-rated projects on watch list</div>
+      </div>
+      <div class="kpii" style="background:#E8F5E9;">
+        <div style="font-size:24px;margin-bottom:4px;">🏭</div>
+        <div class="kpiv" style="color:var(--green);">1</div>
+        <div class="kpil">Project at Mass Production (KOM)</div>
+      </div>
+      <div class="kpii">
+        <div style="font-size:24px;margin-bottom:4px;">📈</div>
+        <div class="kpiv">13.5%</div>
+        <div class="kpil">Portfolio Turnover Rate (New+Stopped / Total)</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div>Agilian Technology Co., Ltd. — NPD Department — CONFIDENTIAL INTERNAL DOCUMENT</div>
+  <div>Source: NPD Lead Project Tracker 2026 &nbsp;|&nbsp; Week ending 29 May 2026 &nbsp;|&nbsp; Generated June 2026</div>
+</div>
+
+</body>
+</html>
